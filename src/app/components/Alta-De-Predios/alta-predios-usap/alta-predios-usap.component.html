@@ -1,0 +1,107 @@
+<mat-card class="my-shadow">
+  <h2 class="my-center">Alta USAP</h2>
+  <div class="example-container">
+
+    <mat-form-field>
+        <input matInput placeholder="Hash" [(ngModel)]="hash">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Nombre" [(ngModel)]="name">
+    </mat-form-field>
+    
+    <mat-form-field>
+      <mat-select [(value)]="selectedOrg" placeholder="Organizaciones">
+        <mat-option *ngFor="let org of organizaciones" [value]="org.value" (click)="changeTemplate()">
+          {{org.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field *ngIf="selectetTempla">
+      <mat-select [(value)]="selectetTempla.id" placeholder="Templates">
+        <mat-option *ngFor="let org of myTemplate" [value]="org.id">
+          {{org.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    
+    <mat-form-field>
+      <input matInput placeholder="Serie de UTM" [(ngModel)]="serieUSAP">
+    </mat-form-field>
+    
+    <mat-form-field>
+      <input matInput placeholder="Type Meraki" [(ngModel)]="type">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Type Tags" [(ngModel)]="tag">
+    </mat-form-field>
+
+    <div class="row" class="derecha">
+      <button mat-mini-fab color="primary" (click)="addTodoSW()"><i class="material-icons"> add </i></button>
+    </div>
+    <mat-form-field>
+      <input matInput placeholder="Serie de SW" [(ngModel)]="newTodoSW.title">
+    </mat-form-field>
+
+    <section class="main" *ngIf="todosSW.length > 0">
+      <ul class="todo-list">
+        <li *ngFor="let todo of todosSW" [class.completed]="todosSW.complete">
+          <div class="view">
+            <label>{{todo.title}}</label>
+            <button mat-icon-button color="warn">
+              <mat-icon (click)="removeTodoSW(todo)">highlight_off</mat-icon>
+            </button>
+          </div>
+        </li>
+      </ul>
+    </section>
+    <footer class="footer" *ngIf="todosSW.length > 0">
+      <span class="todo-count"> Cantidad de <strong>{{todosSW.length}}</strong> {{todosSW.length == 1 ? 'SW' : 'Sws'}}
+      </span>
+    </footer>
+
+    <div class="row" class="derecha">
+      <button mat-mini-fab color="primary" (click)="addTodoAP()"><i class="material-icons"> add </i></button>
+    </div>
+    <mat-form-field>
+      <input matInput placeholder="Serie de AP" [(ngModel)]="newTodoAP.title">
+    </mat-form-field>
+
+    <section class="main" *ngIf="todosAP.length > 0">
+      <ul class="todo-list">
+        <li *ngFor="let todo of todosAP" [class.completed]="todosAP.complete">
+          <div class="view">
+            <label>{{todo.title}}</label>
+            <button mat-icon-button color="warn">
+              <mat-icon (click)="removeTodoAP(todo)">highlight_off</mat-icon>
+            </button>
+          </div>
+        </li>
+      </ul>
+    </section>
+    <footer class="footer" *ngIf="todosAP.length > 0">
+      <span class="todo-count"> Cantidad de <strong>{{todosAP.length}}</strong> {{todosAP.length == 1 ? 'AP' : 'APs'}}
+      </span>
+    </footer> 
+    <br>
+    
+    <div class="row">
+      <div class="col-lg-3 col-md-3">
+        <label>Meraki Auto Bind</label>
+      </div>
+      <div class="col-lg-9 col-md-9">
+        <mat-radio-group [(ngModel)]="autoBind">
+          <mat-radio-button value="Si">Si</mat-radio-button> &nbsp;
+          <mat-radio-button value="No">No</mat-radio-button>
+        </mat-radio-group>
+      </div>
+    </div>
+    <br>
+    <div class="example-button-row my-center">
+      <button mat-raised-button color="primary" (click)="guardar()">Guardar</button>
+      <button mat-raised-button routerLink="/menu" color="warn">Volver</button>
+    </div>
+  </div>
+</mat-card>

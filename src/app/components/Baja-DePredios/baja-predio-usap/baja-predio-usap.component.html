@@ -1,0 +1,26 @@
+<mat-card class="my-shadow">
+  <h2 class="my-center">Baja USAP</h2>
+  <div class="example-container">
+
+    <mat-form-field>
+      <input matInput placeholder="Hash" [(ngModel)]="hash">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Nombre" [(ngModel)]="name">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-select [(value)]="selectedOrg" placeholder="Organizaciones">
+        <mat-option *ngFor="let org of organizaciones" [value]="org.value">
+          {{org.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <div class="example-button-row my-center">
+      <button mat-raised-button color="primary" (click)="guardar()">Guardar</button>
+      <button mat-raised-button routerLink="/menu" color="warn">Volver</button>
+    </div>
+  </div>
+</mat-card>

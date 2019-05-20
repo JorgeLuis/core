@@ -1,0 +1,25 @@
+.containter{
+    margin: 3% 8% 5% 8%;
+}        
+
+.my-center {
+    text-align: center;
+    font-weight: bold;
+  }
+.example-button-row button,
+.example-button-row a {
+  margin-right: 8px;
+  margin-bottom: 8px;
+}
+
+.my-primary {
+    background: #28a745;
+    color: white;
+    font-weight: bold;
+}
+
+
+.my-shadow {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-bottom: 2%;
+}

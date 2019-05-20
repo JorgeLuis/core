@@ -1,0 +1,40 @@
+.example-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.example-button-row button,
+.example-button-row a {
+  margin-right: 8px;
+}
+
+.my-center {
+  text-align: center;
+  font-weight: bold;
+}
+
+.my-shadow {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.mat-radio-button ~ .mat-radio-button {
+  padding-right: 16px;
+}
+
+.derecha {
+  margin-left: auto;
+}
+
+.my-title-table {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.my-green {
+  color: #388e3c;
+  font-size: 1.5em;
+}
+
+.my-bottom {
+  margin-bottom: 8px;
+}

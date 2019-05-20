@@ -1,0 +1,69 @@
+.my-shadow {
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+.example-button-row button,
+.example-button-row a {
+  margin-right: 8px;
+  margin-bottom: 8px;
+}
+
+  .example-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .my-center {
+    text-align: center;
+    font-weight: bold;
+}
+
+.my-inline{
+  margin: 2%;
+  display: flex;
+  margin-left: 10%;
+  font-weight: bold;
+}
+
+.my-blue {
+  background: #007bff;
+  color: white;
+  font-weight: bold;
+}
+.my-primary {
+  background: #28a745;
+  color: white;
+  font-weight: bold;
+}
+
+.my-margin{
+  margin: 1% 1% 1% 1%;
+}
+
+.containter{
+  margin: 3% 8% 1% 8%;
+}
+
+.my-color {
+  color: #007bff;
+}
+
+.my-left-margin {
+  text-align: left;
+  font-weight: bold;
+  margin: 0;
+}
+
+.my-left {
+  text-align: left;
+  font-weight: bold;
+}
+
+.my-title-table {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.my-red {
+  color: red;
+  font-size: 1.5em;
+}

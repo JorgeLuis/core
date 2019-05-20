@@ -1,0 +1,13 @@
+<div class="containter">
+  <mat-card class="my-shadow">
+    <h2 class="my-center">Edición de Predios</h2>
+    <div class="example-button-row my-center">
+      <button mat-raised-button color="primary" (click)="mostrarUnico()">PREDIO</button>
+      <button mat-raised-button color="warn" (click)="mostrarMasivo()">MASIVA</button>
+      <button mat-raised-button class="my-primary" (click)="mostrarDuplicados()">BUSQUEDA</button>
+    </div>
+  </mat-card>
+  <app-unica *ngIf="viewUnico"></app-unica>
+  <app-masiva *ngIf="viewMasivo"></app-masiva>
+  <app-busqueda *ngIf="viewDuplicado"></app-busqueda>
+</div>

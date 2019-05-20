@@ -1,0 +1,31 @@
+<mat-card class="my-shadow">
+  <h2 class="my-center">Busqueda y Renombre de Predios</h2>
+  <div class="example-container">
+
+    <mat-form-field>
+      <input matInput placeholder="Hash" [(ngModel)]="hash">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-select [(value)]="selectedOrg" placeholder="Organizaciones">
+        <mat-option *ngFor="let org of organizaciones" [value]="org.value">
+          {{org.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br>
+    <div class="example-button-row my-center">
+      <button mat-raised-button color="primary" (click)="buscar()">Buscar</button>
+      <button mat-raised-button routerLink="/menu" color="warn">Volver</button>
+    </div>
+  </div>
+</mat-card>
+
+<mat-card class="my-shadow" *ngIf="duplicados.length > 0">
+  <h2 class="my-center">Nombres Duplicados</h2>
+  <div class="example-container">
+    <ul>
+      <li *ngFor="let d of duplicados">{{ d.name}}</li>
+    </ul>
+  </div>
+</mat-card>

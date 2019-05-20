@@ -1,0 +1,78 @@
+<mat-card class="my-shadow">
+  <h2 class="my-center">Buscar un Predio</h2>
+  <div class="example-container">
+
+    <mat-form-field>
+      <input matInput placeholder="Hash" [(ngModel)]="hash">
+    </mat-form-field>
+
+    <div class="row">
+      <div class="col-lg-12 col-md-12" style="display: flex; flex-direction: column;">
+        <mat-form-field>
+          <input matInput placeholder="Nombre" [(ngModel)]="name">
+        </mat-form-field>
+      </div>
+    </div>
+
+    <mat-form-field>
+      <mat-select [(value)]="selectedOrg" placeholder="Organizaciones">
+        <mat-option *ngFor="let org of organizaciones" [value]="org.value">
+          {{org.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-select [(value)]="selectType" placeholder="Type Network">
+        <mat-option *ngFor="let t of typeNetworks" [value]="t.value">
+          {{t.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br>
+    <div class="example-button-row my-center">
+      <button mat-raised-button color="primary" (click)="buscar()">Buscar</button>
+      <button mat-raised-button routerLink="/menu" color="warn">Volver</button>
+    </div>
+  </div>
+</mat-card>
+
+<mat-card class="my-shadow" *ngIf="renombrar.length > 0">
+  <h2 class="my-center">Renombrar el Predio</h2>
+  <div class="example-container">
+
+    <div class="row">
+      <div class="col-lg-6 col-md-6" style="display: flex; flex-direction: column;">
+        <mat-form-field>
+          <input matInput placeholder="Nombre" [(ngModel)]="name" disabled>
+        </mat-form-field>
+      </div>
+      <div class="col-lg-6 col-md-6" style="display: flex; flex-direction: column;">
+        <mat-form-field>
+          <input matInput placeholder="Nuevo Nombre" [(ngModel)]="new_name">
+        </mat-form-field>
+      </div>
+    </div>
+
+    <mat-form-field>
+      <mat-select [(value)]="new_selectedOrg" placeholder="Organizaciones" disabled>
+        <mat-option *ngFor="let org of organizaciones" [value]="org.value">
+          {{org.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-select [(value)]="new_type" placeholder="Type Network" disabled>
+        <mat-option *ngFor="let t of typeNetworks" [value]="t.value">
+          {{t.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br>
+    <div class="example-button-row my-center">
+      <button mat-raised-button color="primary" (click)="enviar()">Enviar</button>
+      <button mat-raised-button routerLink="/menu" color="warn">Volver</button>
+    </div>
+  </div>
+</mat-card>

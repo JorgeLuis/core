@@ -1,0 +1,49 @@
+.example-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.my-center {
+    text-align: center;
+    font-weight: bold;
+  }
+.example-button-row button,
+.example-button-row a {
+  margin-right: 8px;
+}
+
+.my-primary {
+    background: #28a745;
+    color: white;
+    font-weight: bold;
+}
+
+
+.my-shadow {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-bottom: 3%;
+}
+
+.derecha {
+    margin-left: auto;
+}
+  
+.footer {
+    margin-top: -2;
+    margin-bottom: 3%;
+}
+
+
+.my-title-table {
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+  
+  .my-green {
+    color: #388e3c;
+    font-size: 1.5em;
+  }
+  
+  .my-bottom {
+    margin-bottom: 8px;
+  }

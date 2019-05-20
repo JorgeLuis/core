@@ -1,0 +1,15 @@
+<div class="containter">
+  <mat-card class="my-shadow">
+    <h2 class="my-center">Alta de Predios</h2>
+    <div class="example-button-row my-center">
+      <button mat-raised-button color="primary" (click)="mostrarZ3()">Z3</button>
+      <button mat-raised-button class="my-primary" (click)="mostrarMasivaZ3()">MASIVA Z3</button>
+      <button mat-raised-button color="warn" (click)="mostrarUsap()">USAP</button>
+      <button mat-raised-button class="my-second" (click)="mostrarMasivaUSAP()">MASIVA USAP</button>
+    </div>
+  </mat-card>
+  <app-alta-predios-usap *ngIf="viewUsap"></app-alta-predios-usap>
+  <app-alta-predios-z3 *ngIf="viewZ3"></app-alta-predios-z3>
+  <app-alta-masiva *ngIf="viewMasivoZ3"></app-alta-masiva> 
+  <app-alta-masiva-usap *ngIf="viewMasivoUSAP"></app-alta-masiva-usap> 
+</div>

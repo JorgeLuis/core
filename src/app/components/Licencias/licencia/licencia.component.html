@@ -1,0 +1,66 @@
+<div class="containter">
+  <mat-card class="my-shadow">
+    <h2 class="my-center">Datos de las Licencias</h2>
+    <div class="example-container">
+      <div class="my-center" *ngIf="provinciasObj.length > 0">
+        <h2 class="my-center">Provincias</h2>
+        <mat-card>
+          <div class="example-container">
+            <mat-form-field>
+              <input matInput placeholder="Hash" [(ngModel)]="hash">
+            </mat-form-field>
+
+            <h4>
+              <mat-checkbox [(ngModel)]="selectedAll" (change)="selectAll();">Todas</mat-checkbox>
+            </h4>
+            <div class="row" *ngIf="provinciasObj">
+              <div class="col-lg-3 col-md-3" *ngFor="let n of provinciasObj">
+                <mat-checkbox class="my-inline" [(ngModel)]="n.selected" (change)="checkIfAllSelected();">{{n.name}}</mat-checkbox>
+              </div>
+            </div>
+          </div>
+        </mat-card>
+      </div>
+      <br>
+      <div class="example-button-row my-center">
+        <button mat-raised-button (click)="enviar()" color="primary">Buscar</button>
+        <button mat-raised-button routerLink="/menu" color="warn">Volver</button>
+      </div>
+    </div>
+
+
+    <br>
+    <div class="row" *ngIf="filtrados">
+      <div class="col-lg-3 col-md-3" *ngFor=" let n of filtrados">
+        <div class="my-margin my-center">
+          <mat-card class="example-card">
+            <!-- <p class="my-center"><strong>{{n.name}}</strong></p>
+                <p class="my-center"><strong>{{n.id}}</strong></p> -->
+            <h4 class="my-center my-color"><strong>{{n.name}}</strong></h4>
+            <p class="my-left"> Expiración: {{n.expirationDate}}</p>
+            <p class="my-left my-red" *ngIf="n.status !== 'OK'"> Estado: {{n.status}}</p>
+            <p class="my-left" *ngIf="n.status !== 'License Required'"> Estado: {{n.status}}</p>
+            <p class="my-left"> MS225-24P: {{n.MS225}}</p>
+            
+            <p class="my-left"> MX84: {{n.mx84}}</p>
+            <p class="my-left"> wireless: {{n.wireless}}</p>
+            <p class="my-left"> Z3: {{n.z3 || "0"}}</p>
+            <!-- <mat-form-field>
+                <mat-select [(value)]="selectedOrg" placeholder="Organization Access:">
+                  <mat-option *ngFor="let accesO of accessOrganization" [value]="accesO.value">
+                    {{accesO.viewValue}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field> -->
+            <!-- <ul> 
+                <li *ngFor="let n of licensedDeviceCounts" > {n.} </li>
+              </ul> -->
+
+          </mat-card>
+          <br>
+        </div>
+      </div>
+    </div>
+  </mat-card>
+
+</div>

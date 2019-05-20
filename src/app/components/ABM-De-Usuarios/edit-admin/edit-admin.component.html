@@ -1,0 +1,64 @@
+<div class="containter">
+  
+  <mat-card class="my-shadow my-top" *ngIf= "admin">
+      <h2 class="my-center">Edición de Admin</h2>
+    <div class="example-container">
+
+      <mat-form-field>
+         <input matInput placeholder="Hash" [(ngModel)]="hash">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="Nombre" [(ngModel)]="admin.name">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="Email" [(ngModel)]="admin.email" disabled >
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-select [(value)]="admin.orgAccess" placeholder="Organization Access:">
+          <mat-option *ngFor="let accesO of accessOrganization" [value]="accesO.value">
+            {{accesO.viewValue}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field> 
+      <div *ngIf="admin.orgAccess == 'none'">
+        <div class="example-button-row">
+          <h4 class="my-center">Tags template</h4>
+          <!-- <h3>Tags &nbsp;</h3> <button mat-mini-fab color="warn">+</button> -->
+        </div>
+        <mat-card>
+          <div class="example-container">
+            <div class="row">
+              <div class="col-lg-3 col-md-3">
+                <mat-checkbox class="my-inline" [(ngModel)]="checkedAlta">ALTA</mat-checkbox>
+              </div>
+              <div class="col-lg-3 col-md-3">
+                <mat-checkbox class="my-inline" [(ngModel)]="checkedCRM">CRM</mat-checkbox>
+              </div>
+              <div class="col-lg-3 col-md-3">
+                <mat-checkbox class="my-inline"[(ngModel)]="checkedLAB">LAB</mat-checkbox>
+              </div>
+              <div class="col-lg-3 col-md-3">
+                <mat-checkbox class="my-inline" [(ngModel)]="checkedZETA3">Z3</mat-checkbox>
+              </div>
+            </div>
+            <mat-form-field>
+              <mat-select [(value)]="selectedTarget" placeholder="Target Access:">
+                <mat-option *ngFor="let accesT of accessTempate" [value]="accesT.value">
+                  {{accesT.viewValue}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </mat-card>
+      </div>
+      <br>
+      <div class="example-button-row my-center">
+        <button mat-raised-button  (click)="editar()" color="primary">Guardar</button>
+        <button mat-raised-button routerLink="/repo" color="warn">Volver</button>
+      </div>
+    </div>
+  </mat-card>
+</div>

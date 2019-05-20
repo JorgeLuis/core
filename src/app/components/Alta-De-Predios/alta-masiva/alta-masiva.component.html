@@ -1,0 +1,104 @@
+<mat-card class="my-shadow">
+  <h2 class="my-center">Alta Masiva Z3</h2>
+  <div class="example-container">
+
+    <mat-form-field>
+      <input matInput placeholder="Hash" [(ngModel)]="hash">
+    </mat-form-field>
+
+    <div class="row" class="derecha">
+      <button mat-mini-fab color="primary" (click)="addTodoSW()"><i class="material-icons"> add </i></button>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 col-md-6" style="display: flex; flex-direction: column;">
+        <mat-form-field>
+          <input matInput placeholder="Nombre" [(ngModel)]="name">
+        </mat-form-field>
+      </div>
+      <div class="col-lg-6 col-md-6" style="display: flex; flex-direction: column;">
+        <mat-form-field>
+          <input matInput placeholder="Serie de Z3" [(ngModel)]="serieZ3">
+        </mat-form-field>
+      </div>
+    </div>
+
+    <section class="main" *ngIf="todosNomySerie.length > 0">
+      <ul class="todo-list">
+        <li *ngFor="let todo of todosNomySerie" [class.completed]="todosNomySerie.complete">
+          <div class="view">
+            <label><strong>Nombre: </strong>{{todo.nombre}}</label>&nbsp;&nbsp;
+            <label><strong> Serie: </strong> {{todo.serie}} </label>
+
+            <button mat-icon-button color="warn">
+              <mat-icon (click)="removeNomySerie(todo)">highlight_off</mat-icon>
+            </button>
+          </div>
+        </li>
+      </ul>
+    </section>
+    <footer class="footer" *ngIf="todosNomySerie.length > 0">
+      <span class="todo-count"> Cantidad <strong>{{todosNomySerie.length}}</strong> {{todosNomySerie.length ==
+        1 ? 'predio' : 'predios'}}
+      </span>
+    </footer>
+
+    <mat-form-field>
+      <mat-select [(value)]="selectedOrg" placeholder="Organizaciones">
+        <mat-option *ngFor="let org of organizaciones" [value]="org.value" (click)="changeTemplate()">
+          {{org.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Type Meraki" [(ngModel)]="type">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Type Tags" [(ngModel)]="tag">
+    </mat-form-field>
+
+    <mat-form-field *ngIf="selectetTempla">
+      <mat-select [(value)]="selectetTempla.id" placeholder="Templates">
+        <mat-option *ngFor="let org of myTemplate" [value]="org.id">
+          {{org.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <div class="row">
+      <div class="col-lg-3 col-md-3">
+        <label>Meraki Auto Bind</label>
+      </div>
+      <div class="col-lg-9 col-md-9">
+        <mat-radio-group [(ngModel)]="autoBind">
+          <mat-radio-button value="Si">Si</mat-radio-button> &nbsp;
+          <mat-radio-button value="No">No</mat-radio-button>
+        </mat-radio-group>
+      </div>
+    </div>
+    <br>
+    <div class="example-button-row my-center">
+      <button mat-raised-button color="primary" (click)="enviar()">Enviar</button>
+      <button mat-raised-button routerLink="/menu" color="warn">Volver</button>
+    </div>
+  </div>
+
+  <br>
+  <mat-card *ngIf="listResultServer.length > 0">
+    <h2 class="my-center">Resultados de las Altas</h2>
+    <div class="example-container">
+      <div class="row">
+        <div class="col-lg-3 col-md-3 my-center" *ngFor="let n of listResultServer">
+          <mat-card class="my-bottom">
+            <p class="my-title-table">{{n.nombre}}&nbsp;&nbsp;
+              <i class="material-icons my-green">
+                check
+              </i>
+            </p>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+  </mat-card>
+
+</mat-card>

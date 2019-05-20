@@ -1,0 +1,76 @@
+<mat-card class="my-shadow">
+  <h2 class="my-center">Baja Masiva Z3</h2>
+  <div class="example-container">
+
+    <mat-form-field>
+      <input matInput placeholder="Hash" [(ngModel)]="hash">
+    </mat-form-field>
+
+    <div class="row" class="derecha">
+      <button mat-mini-fab color="primary" (click)="addTodoSW()"><i class="material-icons"> add </i></button>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 col-md-6" style="display: flex; flex-direction: column;">
+        <mat-form-field>
+          <input matInput placeholder="Nombre" [(ngModel)]="name">
+        </mat-form-field>
+      </div>
+      <div class="col-lg-6 col-md-6" style="display: flex; flex-direction: column;">
+        <mat-form-field>
+          <input matInput placeholder="Serie de Z3" [(ngModel)]="serieZ3">
+        </mat-form-field>
+      </div>
+    </div>
+
+    <section class="main" *ngIf="todosNomySerie.length > 0">
+      <ul class="todo-list">
+        <li *ngFor="let todo of todosNomySerie" [class.completed]="todosNomySerie.complete">
+          <div class="view">
+            <label><strong>Nombre: </strong>{{todo.nombre}}</label> &nbsp;&nbsp;
+            <label><strong> Serie: </strong> {{todo.serie}} </label>
+
+            <button mat-icon-button color="warn">
+              <mat-icon (click)="removeNomySerie(todo)">highlight_off</mat-icon>
+            </button>
+          </div>
+        </li>
+      </ul>
+    </section>
+    <footer class="footer" *ngIf="todosNomySerie.length > 0">
+      <span class="todo-count"> Cantidad <strong>{{todosNomySerie.length}}</strong> {{todosNomySerie.length ==
+        1 ? 'predio' : 'predios'}}
+      </span>
+    </footer>
+
+    <mat-form-field>
+      <mat-select [(value)]="selectedOrg" placeholder="Organizaciones">
+        <mat-option *ngFor="let org of organizaciones" [value]="org.value">
+          {{org.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br>
+    <div class="example-button-row my-center">
+      <button mat-raised-button color="primary" (click)="enviar()">Enviar</button>
+      <button mat-raised-button routerLink="/menu" color="warn">Volver</button>
+    </div>
+  </div>
+
+  <br>
+  <mat-card *ngIf="listResultServer.length > 0">
+    <h2 class="my-center">Resultados de las Bajas</h2>
+    <div class="example-container">
+      <div class="row">
+        <div class="col-lg-3 col-md-3 my-center" *ngFor="let n of listResultServer">
+          <mat-card class="my-bottom">
+            <p class="my-title-table">{{n.nombre}}&nbsp;&nbsp;
+              <i class="material-icons my-green">
+                check
+              </i>
+            </p>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+  </mat-card>
+</mat-card>
